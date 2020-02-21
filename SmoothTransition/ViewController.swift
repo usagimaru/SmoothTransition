@@ -102,8 +102,6 @@ class ViewController: UIViewController {
 			return distance(from: $0, to: projectedPosition) < distance(from: $1, to: projectedPosition)
 		}).first!
 		
-		print(#function, "\(nearestPosition), \(projectedPosition)")
-		
 		return nearestPosition
 	}
 	
