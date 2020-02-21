@@ -1,6 +1,6 @@
 # SmoothTransition
 
-
+![Animation image](image.gif)
 
 ## Reference
 
