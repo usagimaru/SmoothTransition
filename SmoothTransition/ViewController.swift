@@ -40,8 +40,8 @@ class ViewController: UIViewController {
 			let velocity = gesture.velocity(in: self.view) // points per second
 			
 			// 仮想の移動先を計算
-			let projectedPosition = CGPoint(x: lastObjectLocation.x + project(initialVelocity: velocity.x, decelerationRate: .normal),
-											y: lastObjectLocation.y + project(initialVelocity: velocity.y, decelerationRate: .normal))
+			let projectedPosition = CGPoint(x: lastObjectLocation.x + project(initialVelocity: velocity.x, decelerationRate: .fast),
+											y: lastObjectLocation.y + project(initialVelocity: velocity.y, decelerationRate: .fast))
 			// 最適な移動先を計算
 			let destination = nearestCornerPosition(projectedPosition)
 			
@@ -119,7 +119,8 @@ class ViewController: UIViewController {
 		let top_right = CGPoint(x: viewSize.width - objectSize.width - self.margin + xCenter, y: self.margin + yCenter)
 		let bottom_left = CGPoint(x: self.margin + xCenter, y: viewSize.height - objectSize.height - self.margin + yCenter)
 		let bottom_right = CGPoint(x: viewSize.width - objectSize.width - self.margin + xCenter, y: viewSize.height - objectSize.height - self.margin + yCenter)
-		let destinations = [CGPoint](arrayLiteral: top_left, top_right, bottom_left, bottom_right)
+		let center = CGPoint(x: viewSize.width / 2, y: viewSize.height / 2)
+		let destinations = [CGPoint](arrayLiteral: top_left, top_right, bottom_left, bottom_right, center)
 		
 		return destinations
 	}
